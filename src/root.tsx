@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  UNSAFE_RemixContext,
 } from '@remix-run/react'
 import { ThemeProvider } from '@theme-ui/core'
 import { GlobalStyles } from 'oa-components'
@@ -130,5 +131,11 @@ export default function Root() {
         <Global styles={GlobalStyles} />
       </ThemeProvider>
     </Document>
-  )
+  );
+}
+
+const MapContainer = () => {
+  const context = useContext(UNSAFE_RemixContext)
+  console.log(context) // Should not be undefined
+  return <div>Map Container</div>
 }

@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom'
 import { useEffect, useMemo, useState } from 'react'
 import { Box } from 'theme-ui'
 
@@ -58,14 +59,18 @@ const MapsPage = () => {
   }, [allPins])
 
   return (
-    <Box id="mapPage" sx={{ height: 'calc(100vh - 80px)', width: '100%' }}>
-      <MapContainer
-        allPins={allPins}
-        allToggleFilters={allToggleFilters}
-        notification={notification}
-      />
-    </Box>
+    <BrowserRouter>
+      <Box id="mapPage" sx={{ height: 'calc(100vh - 80px)', width: '100%' }}>
+        <MapContainer
+          allPins={allPins}
+          allToggleFilters={allToggleFilters}
+          notification={notification}
+        />
+      </Box>
+    </BrowserRouter>
   )
 }
 
-export default MapsPage
+export default function MapsRoute() {
+  return <MapsPage />
+}

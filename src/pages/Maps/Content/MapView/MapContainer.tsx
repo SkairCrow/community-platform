@@ -1,5 +1,5 @@
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
 import { Flex } from 'theme-ui'
 
 import { filterPins } from '../../utils/filterPins'
@@ -120,3 +120,17 @@ export const MapContainer = (props: IProps) => {
     </Flex>
   )
 }
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <MapContainer 
+        allPins={[]} 
+        allToggleFilters={[]} 
+        notification="No notifications" 
+      />
+    </BrowserRouter>
+  );
+};
+
+export default App;
